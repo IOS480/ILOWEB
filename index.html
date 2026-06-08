@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Animasi masuk halus saat halaman dimuat */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        /* Menyembunyikan scrollbar bawaan browser tanpa merusak fungsi scroll */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-200 via-pink-50 to-white min-h-screen flex justify-center items-start font-sans selection:bg-pink-300 antialiased">
+
+    <div class="w-full max-w-[420px] min-h-screen bg-white/40 backdrop-blur-md shadow-xl sm:my-4 sm:rounded-[40px] sm:min-h-[850px] border border-white/60 flex flex-col justify-between overflow-hidden relative animate-fade-in">
+        
+        <div>
+            <div class="w-full pt-4 px-6 flex justify-between items-center text-xs text-pink-900 font-bold select-none z-50">
+                <span id="realTimeClock">00:00</span>
+                <div class="w-20 h-4 bg-black rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 hover:w-28 group">
+                    <div class="w-1.5 h-1.5 bg-pink-500 rounded-full animate-ping"></div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <i class="fa-solid fa-signal"></i>
+                    <i class="fa-solid fa-wifi"></i>
+                    <i class="fa-solid fa-battery-full text-pink-600"></i>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center text-center mt-6 px-6">
+                <div class="relative group cursor-pointer">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-rose-400 rounded-full blur opacity-70 group-hover:opacity-100 transition duration-500 animate-spin" style="animation-duration: 4s;"></div>
+                    <div class="relative w-24 h-24 rounded-full border-4 border-white bg-white overflow-hidden shadow-md flex items-center justify-center p-2">
+                        <div class="w-full h-full rounded-full bg-gradient-to-tr from-pink-600 to-rose-400 flex items-center justify-center text-white text-3xl font-black shadow-inner tracking-tighter">
+                            ILO
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 class="text-xl font-black text-pink-950 mt-4 flex items-center gap-1.5 tracking-wide">
+                    ILOWEBKU
+                    <span class="text-blue-500 text-sm bg-blue-50 px-1 py-0.5 rounded-full"><i class="fa-solid fa-circle-check"></i></span>
+                </h1>
+                <p class="text-[11px] text-pink-600 font-bold tracking-widest uppercase bg-pink-100/70 px-3 py-1 rounded-full mt-1.5">welcome iloo</p>
+                
+                <p onclick="copyBio()" class="text-xs text-pink-900/70 mt-3 px-4 py-1.5 bg-white/50 rounded-xl border border-white/80 cursor-pointer hover:bg-white active:scale-95 transition-all" id="bioText">
+                    "Desain website modern, cepat, dan profesional untuk membantu bisnis Anda tumbuh secara digital." <i class="fa-regular fa-copy ml-1 text-pink-400"></i>
+                </p>
+            </div>
+
+            <div class="mx-6 mt-5 bg-white/70 rounded-2xl p-3 flex justify-around text-center border border-pink-100/50 shadow-sm">
+                <div><p class="text-xs font-black text-pink-600">1.8K</p><p class="text-[10px] text-gray-400 font-medium">Clients</p></div>
+                <div class="w-[1px] bg-pink-100"></div>
+                <div><p class="text-xs font-black text-pink-600" id="visitorCount">912</p><p class="text-[10px] text-gray-400 font-medium">Live Views</p></div>
+                <div class="w-[1px] bg-pink-100"></div>
+                <div><p class="text-xs font-black text-pink-600">90+</p><p class="text-[10px] text-gray-400 font-medium">Designs</p></div>
+            </div>
+
+            <div class="px-6 mt-5 space-y-3">
+                <a href="https://wa.me/6285876801735" target="_blank" class="flex items-center justify-between p-3.5 bg-white hover:bg-pink-50/50 rounded-2xl border border-pink-100 shadow-sm transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 group">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white text-lg shadow-md"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div><p class="text-sm font-bold text-pink-950 card-title">WhatsApp Business</p><p class="text-[10px] text-gray-400">Hubungi tim kami langsung</p></div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right-long text-xs text-pink-300 group-hover:text-pink-500 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <a href="https://www.instagram.com/ilowebku?igsh=MXcwcGNsdzVtaHFpbg==" target="_blank" class="flex items-center justify-between p-3.5 bg-white hover:bg-pink-50/50 rounded-2xl border border-pink-100 shadow-sm transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 group">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-10 h-10 bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-lg shadow-md"><i class="fa-brands fa-instagram"></i></div>
+                        <div><p class="text-sm font-bold text-pink-950 card-title">Instagram </p><p class="text-[10px] text-gray-400">Intip portofolio terbaru ILO</p></div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right-long text-xs text-pink-300 group-hover:text-pink-500 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <a href="https://tiktok.com" target="_blank" class="flex items-center justify-between p-3.5 bg-white hover:bg-pink-50/50 rounded-2xl border border-pink-100 shadow-sm transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 group">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-10 h-10 bg-zinc-900 rounded-xl flex items-center justify-center text-white text-lg shadow-md"><i class="fa-brands fa-tiktok"></i></div>
+                        <div><p class="text-sm font-bold text-pink-950 card-title">TikTok Creative</p><p class="text-[10px] text-gray-400">Konten balik layar & tren</p></div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right-long text-xs text-pink-300 group-hover:text-pink-500 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <a href="rakungvip26@gmail.com" class="flex items-center justify-between p-3.5 bg-white hover:bg-pink-50/50 rounded-2xl border border-pink-100 shadow-sm transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 group">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center text-white text-lg shadow-md"><i class="fa-solid fa-envelope"></i></div>
+                        <div><p class="text-sm font-bold text-pink-950 card-title">Email Collaboration</p><p class="text-[10px] text-gray-400">Kerjasama & penawaran resmi</p></div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right-long text-xs text-pink-300 group-hover:text-pink-500 group-hover:translate-x-1 transition-all"></i>
+                </a>
+            </div>
+
+            <div class="px-6 mt-4 space-y-3">
+                <div class="bg-gradient-to-r from-pink-500 to-rose-400 text-white rounded-2xl p-3.5 shadow-md flex items-center justify-between transition-transform hover:scale-[1.01]">
+                    <div class="flex items-center gap-3">
+                        <div id="discMusic" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-lg animate-spin" style="animation-duration: 6s;">
+                            <i class="fa-solid fa-compact-disc"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold truncate w-40">ILO</p>
+                            <p class="text-[9px] text-pink-100" id="musicStatus">Now Playing</p>
+                        </div>
+                    </div>
+                    <button onclick="togglePlay()" id="playBtn" class="w-8 h-8 bg-white text-pink-600 rounded-full flex items-center justify-center shadow-md active:scale-90 transition">
+                        <i class="fa-solid fa-pause text-xs"></i>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-white/80 border border-pink-100 p-3 rounded-2xl flex flex-col justify-between shadow-sm gap-2 utility-card">
+                        <span class="text-[11px] font-bold text-pink-950 card-title"><i class="fa-solid fa-qrcode text-pink-500 mr-1"></i> QR Profil</span>
+                        <button onclick="toggleQR()" class="text-[10px] bg-pink-500 hover:bg-pink-600 text-white font-bold py-1.5 rounded-xl transition active:scale-95">Buka Scan</button>
+                    </div>
+                    <div class="bg-white/80 border border-pink-100 p-3 rounded-2xl flex flex-col justify-between shadow-sm gap-2 utility-card">
+                        <span class="text-[11px] font-bold text-pink-950 card-title"><i class="fa-solid fa-circle-half-stroke text-pink-500 mr-1"></i> Ganti Tema</span>
+                        <button onclick="toggleTheme()" class="text-[10px] bg-zinc-950 text-white font-bold py-1.5 rounded-xl transition active:scale-95" id="themeBtn">Mode Gelap</button>
+                    </div>
+                </div>
+
+                <div class="bg-white/80 border border-pink-100 p-3.5 rounded-2xl shadow-sm space-y-2 utility-card">
+                    <p class="text-[11px] font-bold text-pink-950 card-title"><i class="fa-solid fa-comment-heart text-pink-500 mr-1"></i> Kirim Feedback Cepat</p>
+                    <div class="flex gap-2">
+                        <input type="text" id="msgInput" placeholder="Tulis saran / pesan..." class="flex-1 text-xs bg-pink-50/50 border border-pink-100 rounded-xl px-3 py-2 focus:outline-none focus:border-pink-400 text-pink-950">
+                        <button onclick="sendMsg()" class="bg-pink-500 text-white px-3.5 rounded-xl text-xs font-bold hover:bg-pink-600 active:scale-95 transition"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                    <div id="msgStatus" class="text-[9px] text-green-600 font-bold hidden">laporkan kami kalau ada bug</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full pt-6 pb-3 flex flex-col items-center justify-end bg-transparent z-40">
+            <p class="text-[9px] text-pink-900/40 font-medium mb-2">© 2026 ILOWEB. </p>
+            <div class="w-28 h-1 bg-pink-950/20 rounded-full cursor-pointer hover:bg-pink-950/50 transition-colors" onclick="scrollToTop()"></div>
+        </div>
+
+        <div id="qrModal" class="absolute inset-0 bg-black/40 backdrop-blur-xs z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+            <div class="bg-white p-5 rounded-3xl text-center max-w-[220px] transform scale-90 transition-transform duration-300 shadow-2xl" id="qrCard">
+                <h3 class="text-xs font-bold text-pink-950 mb-3">Scan Code Profil</h3>
+                <img id="profileQrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://ilo.studio" alt="QR Code" class="mx-auto rounded-xl border border-pink-50">
+                <button onclick="toggleQR()" class="mt-4 text-[11px] bg-pink-500 text-white font-bold py-2 rounded-xl w-full hover:bg-pink-600">Tutup</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Jam Real-time Menyesuaikan Waktu HP
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours().toString().padStart(2, '0');
+            let minutes = now.getMinutes().toString().padStart(2, '0');
+            document.getElementById('realTimeClock').innerText = `${hours}:${minutes}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Copy Bio ke Clipboard
+        function copyBio() {
+            const text = "Desain website modern, cepat, dan profesional untuk membantu bisnis Anda tumbuh secara digital.";
+            navigator.clipboard.writeText(text);
+            alert("Bio berhasil disalin! 💕");
+        }
+
+        // Otomatisasi pembentukan QR Code berdasarkan URL aktif
+        try {
+            const currentUrl = window.location.href;
+            if(currentUrl.startsWith('http')) {
+                document.getElementById('profileQrCode').src = `https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=${encodeURIComponent(currentUrl)}`;
+            }
+        } catch(e) {}
+
+        // Simulasi Penambahan Angka Pengunjung Live
+        setInterval(() => {
+            const el = document.getElementById('visitorCount');
+            let count = parseInt(el.innerText.replace(',', ''));
+            count += Math.floor(Math.random() * 2) + 1;
+            el.innerText = count.toLocaleString();
+        }, 5000);
+
+        // Pengatur Musik Play/Pause
+        let isPlaying = true;
+        function togglePlay() {
+            const btn = document.getElementById('playBtn');
+            const disc = document.getElementById('discMusic');
+            const status = document.getElementById('musicStatus');
+            isPlaying = !isPlaying;
+            if(isPlaying) {
+                btn.innerHTML = '<i class="fa-solid fa-pause text-xs"></i>';
+                disc.classList.add('animate-spin');
+                status.innerText = "Now Playing";
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-play text-xs pl-0.5"></i>';
+                disc.classList.remove('animate-spin');
+                status.innerText = "Paused";
+            }
+        }
+
+        // Buka/Tutup Jendela Pop-up QR Code
+        function toggleQR() {
+            const modal = document.getElementById('qrModal');
+            const card = document.getElementById('qrCard');
+            modal.classList.toggle('opacity-0');
+            modal.classList.toggle('pointer-events-none');
+            card.classList.toggle('scale-90');
+        }
+
+        // Fitur Pembalik Tema (Light / Dark Mode Switcher)
+        let isDark = false;
+        function toggleTheme() {
+            const btn = document.getElementById('themeBtn');
+            const container = document.querySelector('.max-w-\\[420px\\]');
+            const titles = document.querySelectorAll('.card-title');
+            const utilityCards = document.querySelectorAll('.utility-card');
+            
+            isDark = !isDark;
+            if(isDark) {
+                container.classList.remove('bg-white/40');
+                container.classList.add('bg-zinc-900/95', 'text-white');
+                btn.innerText = "Mode Terang";
+                btn.className = "text-[10px] bg-pink-500 text-white font-bold py-1.5 rounded-xl transition";
+                titles.forEach(t => t.style.color = '#ffe4e6');
+                utilityCards.forEach(c => {
+                    c.classList.remove('bg-white/80', 'border-pink-100');
+                    c.classList.add('bg-zinc-800/80', 'border-zinc-700');
+                });
+            } else {
+                container.classList.remove('bg-zinc-900/95', 'text-white');
+                container.classList.add('bg-white/40');
+                btn.innerText = "Mode Gelap";
+                btn.className = "text-[10px] bg-zinc-950 text-white font-bold py-1.5 rounded-xl transition";
+                titles.forEach(t => t.style.color = '#1c1917');
+                utilityCards.forEach(c => {
+                    c.classList.remove('bg-zinc-800/80', 'border-zinc-700');
+                    c.classList.add('bg-white/80', 'border-pink-100');
+                });
+            }
+        }
+
+        // Kirim Pesan Anonim
+        function sendMsg() {
+            const input = document.getElementById('msgInput');
+            const status = document.getElementById('msgStatus');
+            if(input.value.trim() !== "") {
+                status.classList.remove('hidden');
+                input.value = "";
+                setTimeout(() => { status.classList.add('hidden'); }, 3000);
+            }
+        }
+
+        // Smooth Scroll ke Atas saat Home Indicator di-tap
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
